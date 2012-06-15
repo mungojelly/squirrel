@@ -28,7 +28,15 @@
       function walk()
       {
         x += Math.cos(orientation) * walkingVelocity;
+        if (x < -(canvas.width/2))
+          x = -(canvas.width/2);
+        if (x > (canvas.width/2))
+          x = (canvas.width/2);
         y += Math.sin(orientation) * walkingVelocity;
+	if (y < -(canvas.height/2))
+          y = -(canvas.height/2);
+        if (y > (canvas.height/2))
+          y = (canvas.height/2);
       }
 
       function turn()
@@ -123,6 +131,6 @@
   <body onload="initialize()"
         onkeydown="handleKeyDown(event.keyCode)"
         onkeyup="handleKeyUp(event.keyCode)">
-    <canvas id="canvas" width="400" height="400"></canvas>
+    <canvas id="canvas" width="200" height="500"></canvas>
   </body>
 </html>
